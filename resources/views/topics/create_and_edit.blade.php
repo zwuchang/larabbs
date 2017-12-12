@@ -1,4 +1,22 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/simditor.css') }}">
+@stop
+
+@section('scripts')
+    <script src="{{ asset('js/module.js') }}"></script>
+    <script src="{{ asset('js/hotkeys.js') }}"></script>
+    <script src="{{ asset('js/uploader.js') }}"></script>
+    <script src="{{ asset('js/simditor.js') }}"></script>
+
+    <script>
+        $(document).ready(function(){
+            var editor = new Simditor({
+                textarea:$('#editor'),
+            });
+        });
+    </script>
+@stop
 
 @section('content')
 
@@ -47,7 +65,7 @@
 
                 <div class="form-group">
                     <label for="body-field">内容</label>
-                    <textarea name="body" id="body-field" placeholder="请填入至少三个字符的内容。" class="form-control" rows="3">{{ old('body', $topic->body ) }}</textarea>
+                    <textarea name="body" id="editor" placeholder="请填入至少三个字符的内容。" class="form-control" rows="3">{{ old('body', $topic->body ) }}</textarea>
                 </div>
 
                     <div class="well well-sm">

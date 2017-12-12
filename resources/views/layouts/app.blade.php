@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title','LaraBBS') - Laravel 进阶教程 </title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">
@@ -23,7 +24,9 @@
         @include('layouts._footer')
     </div>
 
+    {{-- 引入js --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>
 
