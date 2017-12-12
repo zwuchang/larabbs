@@ -42,7 +42,10 @@ class UserRequest extends FormRequest
             'name.required' =>  '用户名不能为空。',
             'avatar.dimensions' =>  '图片的清晰度不够，宽和高需要200px以上',
         ];
+
     }
+
+
 }
 
 
