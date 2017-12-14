@@ -11,7 +11,13 @@ class ReplyObserver
 {
     public function creating(Reply $reply)
     {
-        //
+        //防止XSS
+        $reply->content = clean($reply->content,'user_topic_body');
+    }
+
+    public function created(Reply $reply)
+    {
+        $reply->topic->increment('reply_count',1);
     }
 
     public function updating(Reply $reply)
