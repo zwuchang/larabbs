@@ -25,6 +25,7 @@ class SlugTranslateHandler
         $key = config('services.baidu_translate.key');
         $salt = time();
 
+        sleep(30);
         //如果没有配置百度翻译，使用拼音
         if (empty($appid) || empty($key)) {
             return $this->pinyin($text);
@@ -42,6 +43,7 @@ class SlugTranslateHandler
             'salt'  =>  $salt,
             'sign'  =>  $sign
         ]);
+
 
         //发送http get请求
         $response = $http->get($api.$query);
