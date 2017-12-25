@@ -20,7 +20,7 @@ class TopicsController extends Controller
 
     public function index(Request $request,Topic $topic)
     {
-        $topics = Topic::withOrder($request->order)->paginate(20);
+        $topics = Topic::withOrder($request->order)->orderBy('created_at','desc')->paginate(20);
         return view('topics.index', compact('topics'));
     }
 
